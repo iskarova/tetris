@@ -1,6 +1,0 @@
-﻿  main.cpp
-C:\Users\aanse\source\repos\tetris\tetris\main.cpp(31,32): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\aanse\source\repos\tetris\tetris\main.cpp(31,29): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\aanse\source\repos\tetris\tetris\main.cpp(33,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\aanse\source\repos\tetris\tetris\main.cpp(23,1): warning C4715: rotate: значение возвращается не при всех путях выполнения
-  tetris.vcxproj -> C:\Users\aanse\source\repos\tetris\x64\Debug\tetris.exe
