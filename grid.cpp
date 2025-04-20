@@ -1,5 +1,6 @@
 #include "grid.h"
 #include <iostream>
+#include "colors.h"
 
 Grid::Grid() {
 
@@ -8,7 +9,7 @@ Grid::Grid() {
 	cellSize = 30;
 
 	Initialize();
-	colors = getCellColor();
+	colors = getCellColors();
 }
 
 void Grid::Initialize() {
@@ -30,20 +31,6 @@ void Grid::Print() {
 	}
 }
 
-std::vector<Color> Grid::getCellColor() {
-
-	Color darkGrey = {26, 31, 40, 255};
-	Color green = {47, 230, 23, 255};
-	Color red = {232, 18, 18, 255};
-	Color orange = {226, 116, 17, 255};
-	Color yellow = {237, 234, 4, 255};
-	Color purple = {166, 0, 247, 255};
-	Color cyan = {21, 204, 209, 255};
-	Color blue = {13, 64, 216, 255};
-
-	return { darkGrey, green, red, orange, yellow, purple, cyan, blue };
-}
-
 void Grid::Draw() {
 	for (int row = 0; row < numRows; row++) {
 		for (int column = 0; column < numCols; column++) {
@@ -51,4 +38,11 @@ void Grid::Draw() {
 			DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, colors[cellValue]);
 		}
 	}
+}
+
+bool Grid::isCellOutside(int row, int column) {
+	if (row >= 0 && row < numRows && column >= 0 && column < numCols)
+		return false;
+	
+	return true;
 }

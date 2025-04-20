@@ -1,6 +1,9 @@
 #include <iostream>
 #include "raylib.h"
-#include "grid.h"
+#include "game.h"
+
+double lastUpdateTime = 0;
+bool eventTriggered(double interval);
 
 using namespace std;
 int main() {
@@ -9,17 +12,30 @@ int main() {
 	InitWindow(300, 600, "tetris");
 	SetTargetFPS(60);
 
-	Grid grid = Grid();
-	grid.Print();
+	Game game = Game();
 
 	while (!WindowShouldClose()) {
+		game.handleInput();
+		if (eventTriggered(0.5)) {
+			game.moveBlockDown();
+		}
 		BeginDrawing();
 		ClearBackground(darkBlue);
-		grid.Draw();
-
+		game.Draw();
 		EndDrawing();
 	}
 
 	CloseWindow();
 	return 0;
+}
+
+bool eventTriggered(double interval) {
+
+	double currentTime = GetTime();
+	if (currentTime - lastUpdateTime >= interval) {
+		lastUpdateTime = currentTime;
+		return true;
+	}
+
+	return false;
 }

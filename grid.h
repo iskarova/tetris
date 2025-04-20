@@ -11,10 +11,10 @@ public:
 	void Initialize();
 	void Print();
 	void Draw();
+	bool isCellOutside(int row, int column);
 
 private:
 
-	std::vector<Color> getCellColor();
 	int numRows;
 	int numCols;
 	int cellSize;

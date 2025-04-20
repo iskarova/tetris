@@ -11,6 +11,7 @@ public:
 	void Draw();
 	void Move(int rows, int columns);
 	void Rotate();
+	void undoRotation();
 	std::vector<Position> getCellPositions();
 	int id;
 	std::map<int, std::vector<Position>> cells;
