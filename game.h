@@ -9,7 +9,13 @@ public:
 	Block getRandomBlock();
 	std::vector<Block> getAllBlocks();
 	void Draw();
+	void handleInput();
+	void moveBlockLeft();
+	void moveBlockRight();
+	void moveBlockDown();
 private: 
+	bool isBlockOutside();
+	void RotateBlock();
 	std::vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;

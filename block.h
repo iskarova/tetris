@@ -10,6 +10,7 @@ public:
 	//void Draw(int offsetX, int offsetY);
 	void Draw();
 	void Move(int rows, int columns);
+	void Rotate();
 	std::vector<Position> getCellPositions();
 	int id;
 	std::map<int, std::vector<Position>> cells;

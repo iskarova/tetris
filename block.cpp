@@ -26,7 +26,7 @@ void Block::Draw() {
 
 void Block::Move(int rows, int columns) {
 	rowOffset += rows;
-	columnOffset -= columns;
+	columnOffset += columns;
 }
 
 std::vector<Position> Block::getCellPositions() {
@@ -40,4 +40,14 @@ std::vector<Position> Block::getCellPositions() {
 		movedTiles.push_back(newPos);
 	}
 	return movedTiles;
+}
+
+void Block::Rotate() {
+	
+	rotationState++;
+	
+	if (rotationState == (int)cells.size()) {
+		rotationState = 0;
+	}
+
 }
