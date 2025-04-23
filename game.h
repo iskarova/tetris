@@ -19,6 +19,7 @@ private:
 	void RotateBlock();
 	void lockBlock();
 	bool blockFits();
+	void Reset();
 	std::vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;

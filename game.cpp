@@ -1,5 +1,6 @@
 #include "game.h"
 #include <random>
+#include <ctime>
 
 Game::Game() {
 
@@ -15,6 +16,7 @@ Block Game::getRandomBlock() {
 	if (blocks.empty()) {
 		blocks = getAllBlocks();
 	}
+	srand((unsigned)time(0));
 	int index = rand() % blocks.size();
 	Block block = blocks[index];
 	blocks.erase(blocks.begin() + index);
@@ -34,6 +36,12 @@ void Game::Draw() {
 void Game::handleInput() {
 
 	int keyPressed = GetKeyPressed();
+
+	if (gameOver && keyPressed != 0) {
+		
+		gameOver = false;
+		Reset();
+	}
 
 	switch (keyPressed) {
 	case KEY_LEFT:
@@ -119,4 +127,12 @@ bool Game::blockFits()
 		if (grid.isCellEmpty(item.row, item.column) == false)
 			return false;
 	return true;
+}
+
+void Game::Reset()
+{
+	grid.Initialize();
+	blocks = getAllBlocks();
+	currentBlock = getRandomBlock();
+	nextBlock = getRandomBlock();
 }
