@@ -13,6 +13,7 @@ public:
 	void moveBlockLeft();
 	void moveBlockRight();
 	void moveBlockDown();
+	bool gameOver;
 private: 
 	bool isBlockOutside();
 	void RotateBlock();
